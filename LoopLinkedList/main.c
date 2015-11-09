@@ -25,7 +25,9 @@ int detect_loop(LIST *head)
 	LIST *turtle = head;
 	LIST *hare = head->next;
 	int count = 0;
+	printf("Tortoise\tHare\n");
 	while(hare != turtle) {
+		printf("%d-%p\t%d-%p\n", turtle->data, turtle, hare->data, hare);
 		turtle = turtle->next;
 		hare = hare->next->next;
 		count++;
