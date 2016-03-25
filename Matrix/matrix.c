@@ -26,5 +26,6 @@ void write_matrix(int **matrix, int row, int col, int data)
 
 void destroy_matrix(int **matrix)
 {
-	return destroy_bitmap(*matrix);
+	destroy_bitmap(*matrix);
+	free(matrix);
 }
