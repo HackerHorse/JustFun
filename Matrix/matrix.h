@@ -6,4 +6,5 @@ int read_matrix(int **matrix, int row, int col);
 void write_matrix(int **matrix, int row, int col, int data);
 void destroy_matrix(int **matrix);
 
+void print_matrix(int **matrix, int row, int col);
 #endif

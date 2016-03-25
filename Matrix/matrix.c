@@ -1,13 +1,15 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "matrix.h"
 #include "bitmap.h"
 
 int **decl_matrix(int row, int col)
 {
-	int **matrix = NULL;
+	int **matrix = (int **)malloc(sizeof(int*));
 
-	*matrix = (int *)declare_bitmap(row*col);
+	*matrix = NULL;
+	*matrix = (int *)declare_bitmap(((row*col)/(sizeof(int)*8))+ 1);
 
 	return matrix;
 }
