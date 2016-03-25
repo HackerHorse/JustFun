@@ -1,10 +1,12 @@
 #ifndef __BITMAP__
 #define __BITMAP__
 
-int *declare_bitmap(int size);
-int get_bit(int location);
-int flip_bit(int location);
-int set_bit(int location);
-int destroy_bitmap(int *bitmap);
+void *declare_bitmap(int size);
+int get_bit(int *bitmap, int location);
+int flip_bit(int *bitmap, int location);
+void set_bit(int *bitmap, int location);
+void write_bit(int *bitmap, int location, int bit);
+void unset_bit(int *bitmap, int location);
+void destroy_bitmap(int *bitmap);
 
-#endif __BITMAP__
+#endif

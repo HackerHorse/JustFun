@@ -3,7 +3,7 @@
 
 int **decl_matrix(int row, int col);
 int read_matrix(int **matrix, int row, int col);
-int write_matrix(int **matrix, int row, int col, int data);
-int destroy_matrix(int **matrix);
+void write_matrix(int **matrix, int row, int col, int data);
+void destroy_matrix(int **matrix);
 
 #endif
