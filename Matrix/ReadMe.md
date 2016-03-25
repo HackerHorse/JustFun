@@ -7,7 +7,7 @@ Make your application to include "matrix.h" and link it with libmatrix.so
 Example:
 In the Test directory, I have provided a sample application.
 
->main.c -o exec -I <path-to-matrix.h> -L <path-to-libmatrix.so> -lmatrix
+>gcc main.c -o exec -I <path-to-matrix.h> -L <path-to-libmatrix.so> -lmatrix
 
 Make sure you have LD_LIBRARY_PATH set to point to libmatrix.so.
 
