@@ -26,7 +26,7 @@ LFLAGS =
 LIBS =
 
 # define the C source files
-SRCS = bitmap.c matrix.c
+SRCS = bitmap.c matrix.c logger.c
 
 LDFLAGS = -shared
 # define the C object files 

@@ -2,6 +2,7 @@
 #include <malloc.h>
 
 #include "bitmap.h"
+#include "logger.h"
 
 #define GET_INDEX(location) (location / BLOCK_SIZE)
 #define GET_OFFSET(location)(location % BLOCK_SIZE)
@@ -11,6 +12,7 @@
 
 void* declare_bitmap(int size)
 {
+	LOG_MSG(ERR, "Sizeof allocatopn:%d", size);
 	return calloc(size, sizeof(int));
 }
 
