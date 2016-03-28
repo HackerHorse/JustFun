@@ -11,6 +11,8 @@ typedef struct header {
 
 #define EXTRACT_DIM(a,b) (a = (dimension_t *)(b[1]));
 
+#define GET_ELEM_LOCATION(dim, r, c) ((r*dim->col)+c)
+
 int **decl_matrix(int row, int col)
 {
 	int **matrix;
@@ -21,7 +23,7 @@ int **decl_matrix(int row, int col)
 		goto out;
 
 	matrix[0] = NULL;
-	matrix[0] = (int *)declare_bitmap(((row*col)/(sizeof(int)*8))+ 1);
+	matrix[0] = (int *)declare_bitmap((row*col)/(BLOCK_SIZE)+ 1);
 	if (matrix[0] == NULL) {
 		free(matrix);
 		matrix = NULL;
@@ -51,7 +53,7 @@ int read_matrix(int **matrix, int row, int col)
 
 	EXTRACT_DIM(dim, matrix);
 
-	return get_bit(*matrix, (row*dim->col) + col);
+	return get_bit(*matrix, GET_ELEM_LOCATION(dim, row, col));
 }
 
 void write_matrix(int **matrix, int row, int col, int data)
@@ -59,7 +61,10 @@ void write_matrix(int **matrix, int row, int col, int data)
 	dimension_t *dim;
 	EXTRACT_DIM(dim, matrix);
 
-	write_bit(*matrix, (row*dim->col)+col, data);
+	if (data)
+		set_bit(*matrix, GET_ELEM_LOCATION(dim, row, col));
+	else
+		unset_bit(*matrix, GET_ELEM_LOCATION(dim, row, col));
 }
 
 void destroy_matrix(int **matrix)

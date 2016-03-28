@@ -3,8 +3,6 @@
 
 #include "bitmap.h"
 
-#define BLOCK_SIZE (sizeof(int)*8)
-
 #define GET_INDEX(location) (location / BLOCK_SIZE)
 #define GET_OFFSET(location)(location % BLOCK_SIZE)
 
@@ -13,7 +11,6 @@
 
 void* declare_bitmap(int size)
 {
-	printf("Allocation size=%d\n", size);
 	return calloc(size, sizeof(int));
 }
 
