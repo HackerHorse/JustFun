@@ -27,14 +27,6 @@ int get_bit(int *bitmap, int location)
 	return ((bitmap[index] & SET_BIT(offset)) ? 1 : 0);
 }
 
-void write_bit(int *bitmap, int location, int bit)
-{
-	if(bit)
-		set_bit(bitmap, location);
-	else
-		unset_bit(bitmap, location);
-}
-
 int flip_bit(int *bitmap, int location)
 {
 	return 0;
