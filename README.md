@@ -1,2 +1,2 @@
-# JustFun
-Here I write small codes!!
+# Just for Fun
+Small code goes here
